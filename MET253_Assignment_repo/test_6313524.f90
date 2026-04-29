@@ -35,5 +35,6 @@ end if
 print'(I5,10X,I3,8X,A1,5X,A12)', i, a(i), Grade, Remarks
 end do
 end program grades
+
 !6313524
 !Sarpong Matthew
