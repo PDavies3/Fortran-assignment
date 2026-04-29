@@ -5,7 +5,6 @@ integer,dimension(10)::a(10)
 integer::i
 character(len=1):: Grade
 character(len=12)::remarks
-print*,'students score'
 
 a(1)= 85
 a(2)= 62
@@ -17,23 +16,28 @@ a(7)= 55
 a(8)= 88
 a(9)= 61
 a(10)= 47
-Do i=1,10 
-if (a(1)>=80, <=100) then 
-print*,'A', 'Distinction'
-else
-if (a(1) >=60,<=79) 
-print*,'B', 'Credit"
-else
-if (a(1) >= 40, <=59)
-print*, 'C', 'Pass"
-else
-if (a(1)>=0,<=39) 
-print*,'F', 'Fail'
-else 
-print*,'Student did not participate'
-end if
-end do
+print*, 'Student No.| Score | | Grade | | Remarks |'
+print*,
+'--------------------------------------------------------------------------------'
 
+Do i=1,10 
+if (a(i) >=80 .and. a(i) <=100) then  
+Grade = 'A'
+Remarks = 'Distinction'
+else
+if (a(i) >=60 .and. a(i) <=79) 
+Grade = 'B'
+Remarks = 'Credit'
+else
+if (a(i) >= 40 .and. a(i) <=59)
+Grade = 'C'
+Remarks = 'Pass'
+else
+Grade = 'F'
+Remarks = 'Fail'
+end if
+print*, i, a(i), Grade, Remarks
+end do
 end program grades
 !6313524
 !Sarpong Matthew
