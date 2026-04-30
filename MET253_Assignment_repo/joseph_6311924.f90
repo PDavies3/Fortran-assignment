@@ -22,5 +22,4 @@ END IF
 PRINT '(I5,5X,I5,5X,A,5X,A)',i,score(i),grade,remark
 END DO
 END PROGRAM students_results
-END PROGRAM
 !okang joseph boye
