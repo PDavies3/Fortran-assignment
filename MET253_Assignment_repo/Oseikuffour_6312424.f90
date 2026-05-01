@@ -1,38 +1,28 @@
 PROGRAM scores
 IMPLICIT NONE
-!6312424
-INTEGER:: i,x
+!6312424 Oseikuffour
+INTEGER :: i
+INTEGER, DIMENSION(10) :: x
+CHARACTER(len=1) :: grade
+CHARACTER(len=12) :: remark
+!Assign scores
+x=(/85,62,45,91,38,74,55,88,61,47/)
+PRINT*, 'Student score grade remark'
+PRINT*, '-----------------------------------'
 DO i=1,10
-x(1,1)=1
-x(1,2)=2
-x(1,3)=3
-x(1,4)=4
-x(1,5)=5
-x(1,6)=6
-x(1,7)=7
-x(1,8)=8
-x(1,9)=9
-x(1,10)=10
-x(2,1)=85
-x(2,2)=62
-x(2,3)=45
-x(2,4)=91
-x(2,5)=38
-x(2,6)=74
-x(2,7)=55
-x(2,8)=88
-x(2,9)=61
-x(2,10)=47
-END DO
-PRINT*,'Enter scores'
-READ*,'i'
-IF(score>=80 .and. score<=100)THEN
-PRINT*,'Distinction,A'
-ELSE IF(score>=60 .and. score<=79)THEN
-PRINT*,'Credit,B'
-ELSE IF(score>=40 .and. score<=59)THEN
-PRINT*,'Pass,C'
-ELSE IF(score>=0 .and. score<=39)THEN
-PRINT*,'Fail,F'
+IF(x(i)>=80 .and. x(i)<=100)THEN
+ grade = 'A'
+ remark = 'Distinction'
+ELSE IF(x(i)>=60 .and. x(i)<=79)THEN
+ grade = 'B'
+ remark = 'Credit'
+ELSE IF(x(i)>=40 .and. x(i)<=59)THEN
+ grade = 'C'
+ remark = 'Pass'
+ELSE IF(x(i)>=0 .and. x(i)<=39)THEN
+ grade = 'F'
+ remark = 'Fail'
 END IF
+PRINT '(I3,5X,I3,5X,A1,5X,A12)',i, x(i), grade, remark
+END DO
 END PROGRAM scores
