@@ -21,6 +21,6 @@ do i = 1,10
      Grade = "F"
      Remarks = "Fail"
   end if
-  print'(I3,9X,I3,7X,A1,9X,A11)', i, Score(i), Grade, Remarks
+  print'(I3,9X,I3,7X,A1,9X,A11)', i, Score(i), Grade,  Remarks
  end do
  END PROGRAM quiz
