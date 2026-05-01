@@ -10,6 +10,7 @@ PRINT*, "--------------------------------------"
 PRINT*, "Student   Score   Grade   Remark"
 PRINT*, "--------------------------------------"
 DO i = 1,10
+!Loops through all students.
 IF (scores(i) >= 80 .AND. scores(i) <= 100) THEN
 grade = 'A' 
 remark = 'Distinction'
@@ -24,6 +25,8 @@ grade = 'F'
 remark = 'Fail'
 END IF
 WRITE(*,100) i, scores(i), grade, remark
+!display student name, score, grade and remark.
 END DO
 100 FORMAT(I5,5X,I5,5X,A1,7X,A12)
+!controls the output alignment and spacing.
 END PROGRAM grades
