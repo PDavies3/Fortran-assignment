@@ -1,0 +1,31 @@
+!iINDEX NUMBER:6312224
+!NAME:OPARE-AGYEI DERICK
+PROGRAM DERICK
+IMPLICIT NONE
+INTEGER,DIMENSION(10)::a
+INTEGER,DIMENSION(10)::s
+a(1)=1 ; s(1)=85
+a(2)=2 ; s(2)=62
+a(3)=3 ; s(3)=45
+a(4)=4 ; s(4)=91
+a(5)=5 ; s(5)=30
+a(6)=6 ; s(6)=74
+a(7)=7 ; s(7)=55
+a(8)=8 ; s(8)=88
+a(9)=9 ; s(9)=61
+a(10)=10 ; s(10)=47
+ do row=(1,2)
+do count*,(1,10)
+
+
+PRINT*,'Enter the score'
+READ*,s
+IF(a>=100)THEN
+PRINT*,'GRADE A'
+ELSE IF(s>=79)THEN
+PRINT*,'GRADE B'
+ELSE IF(s>=59)THEN
+PRINT*,'GRADE C'
+ELSE IF(s<39)THEN
+PRINT*,'GRADE F'
+PRINT'
