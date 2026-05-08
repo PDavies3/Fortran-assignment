@@ -1,14 +1,27 @@
 PROGRAM maths
 IMPLICIT NONE
-INTEGER,DIMENSION(10)::Students_scores=(/85,62,45,91,38,74,55,88,61,47/)
-CHARACTER(1),DIMENSION(10)::Students_grades
-PRINT*,'A'
-IF 79>Score<60,
-PRINT*,'B'
-IF 40>Score<59,
-PRINT*,'C'
-IF 39>Score<0,
-PRINT*,'F
+INTEGER,DIMENSION(10)::Scores=(/85,62,45,91,38,74,55,88,61,47/)
+CHARACTER(1),DIMENSION(10)::Grades
+INTEGER::i
+CHARACTER(LEN=2):: Grade
+CHHARACTER(LEN=11)::Remark
+PRINT*,'Student academic report-Math'
+PRINT*,Student No. Score Grade Remark'
+!Do loop to execute the marks display part of the code
+Do i=1 , 10
+IF (Scores(i)>=80) THEN
+Grade= 'A'; Remark= 'Distinction'
+ELSE IF (Scores(i)>=60) THEN
+Grade= 'B'; Remark= 'Credit'
+ELSE IF (Scores(i)>=40) THEN
+Grade= 'C'; Remark= 'Pass'
+ELSE 
+Grade= 'F'; Remark= 'Fail'
+END IF
+WRITE(*,100) i, Scores(i), Grade, Remark
+100 FORMAT(5X, I3, 10X, I3, 8X, A2, 6X, A12)
+END DO
+PRINT*,''
 END PROGRAM maths
 !Perpetual Nyamaa Sam _6313424
 
