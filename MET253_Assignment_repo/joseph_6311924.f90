@@ -1,34 +1,43 @@
-PROGRAM student grades
-IMPLICIT NONE 
-INTEGER,DIMENSION :: scores
-INTEGER :: i
-CHARACTER(len=1) ::grade
-scores=(/85,62,45,91,38,74,88,61,47)
-PRINT*,"                                            " 
-PRINT*," KUMASI SECONDARY SCHOOL-MATHEMATICS CLASS "
-PRINT*," END OF SEMESTER REPORT
-PRINT*,"                                             "
-PRINT*," STUDENT NUMBER. SCORE GRADE " 
+PROGRAM student_grades
+    IMPLICIT NONE
 
-DO i=1,10
-IF (scores(i)>= 80) THEN,
-grade ='A'
-ELSE IF (score(i)>=70) THEN,
-grade = 'B'
-ELSE IF (score(i)>= 60) THEN,
-grade = 'C'
-ELSE IF (score(i)>=50) THEN,
-grade = 'D'
-ELSE IF (score(i)>=40) THEN,
-grade = 'E'
-ELSE 
-grade = 'F'
-WRITE(*,'(I11,I10,A8)')I, SCORES(I), GRADE 
-END DO 
-PRINT*,""
-PRINT*,"                                                "
-PRINT*,"End of Report"
-PRINT*,"                                                "
-END PROGRAM student grades
-END PROGRAM
+    ! CORRECTION: Added (10) to declare array size; Fortran requires explicit dimensions for fixed arrays.
+    INTEGER, DIMENSION(10) :: scores = (/85,62,45,91,38,74,55,88,61,47/)
+    INTEGER :: i
+    CHARACTER(len=1) :: grade
+    !CORRECTION: Added 'remark' variable because the assignment requires "Remark" in the output.
+    CHARACTER(len=11) :: remark
+
+    PRINT*, "KUMASI SECONDARY SCHOOL-MATHEMATICS CLASS"
+    PRINT*, "END OF SEMESTER REPORT"
+    PRINT*, ""
+    WRITE(*, '(A15, A10, A10, A15)') "STUDENT NUMBER", "SCORE", "GRADE", "REMARK"
+
+    DO i = 1, 10
+        
+        ! CORRECTION: Changed 'score(i)' to 'scores(i)' to match variable declaration.
+        ! correctiion: Updated ranges (80, 60, 40) to match the specific grading scheme in the assignment.
+        IF (scores(i) >= 80) THEN
+            grade = 'A'
+            remark = 'Distinction'
+        ELSE IF (scores(i) >= 60) THEN
+            grade = 'B'
+            remark = 'Credit'
+        ELSE IF (scores(i) >= 40) THEN
+            grade = 'C'
+            remark = 'Pass'
+        ELSE
+            grade = 'F'
+            remark = 'Fail'
+        END IF
+
+        ! CORRECTION: Added 'remark' to the write statement so it actually appears in report.
+        WRITE(*, '(I15, I10, A10, A15)') i, scores(i), grade, remark
+    END DO
+
+    PRINT*, ""
+    PRINT*, "End of Report"
+
+END PROGRAM student_grades
+! CORRECTION: Removed the duplicate 'END PROGRAM' statement because it causes a compilation error.
 !okang joseph boye
