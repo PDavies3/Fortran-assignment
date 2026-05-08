@@ -36,7 +36,7 @@ PROGRAM student_report
             remark = 'Pass'
 
         ELSE
-            grade = 'f'
+            grade = 'F' !am just changing it from small f to capital F
             remark = 'Fail'
         END IF
 
@@ -47,7 +47,6 @@ PROGRAM student_report
         i = i + 1
 
     END DO
-
     PRINT *, "-------------------------------------------"
     PRINT *, "         END OF REPORT"
     PRINT *, "==========================================="
