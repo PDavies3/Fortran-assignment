@@ -1,31 +1,42 @@
 PROGRAM SCORES
 IMPLICIT NONE
-INTEGER,DIMENSION(10)::A,B
-INTEGER::i
-A(i) = STUDENT
-B(i) = SCORE
-B = 85, 62, 95, 91, 38, 74, 55, 88, 61, 47
-A = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+
+!Variable declarations
+INTEGER,DIMENSION(10) :: SCORE
+INTEGER :: i
 CHARACTER(len=1) :: GRADE
 CHARACTER(len=12) :: REMARK
-PRINT*, 'ENTER STUDENT GRADE:'
-READ*, A
-DO i=1,10
-IF (SCORE(i)>=80) THEN
+
+!student scores
+SCORE  = (/85, 62, 45, 91, 38, 74, 55, 88, 61, 47/)
+
+!Print table heading
+PRINT'(A)', 'STUDENT    SCORE    GRADE    REMARK'
+
+DO i = 1, 10
+
+!Grade classification
+IF (SCORE(i) >= 80) THEN
 GRADE = 'A'
 REMARK = 'DISTINCTION'
-IF (SCORE(i)>=60) THEN
+
+ELSE IF (SCORE(i) >= 60) THEN
 GRADE = 'B'
 REMARK = 'CREDIT'
-ELSE IF (SCORE(i)>=40) THEN
+
+ELSE IF (SCORE(i) >= 40) THEN
 GRADE = 'C'
 REMARK = 'PASS'
+
 ELSE
 GRADE = 'F'
 REMARK = 'FAIL'
 END IF
-PRINT'(15,5X,15,5X,A,5X,A)', i, score(i), grade, remark
+!Formatted output
+PRINT'(I5,5X,I5,5X,A,5X,A)', i, SCORE(i), GRADE, REMARK
+
 END DO
+
 END PROGRAM SCORES
 
 !EDWARD_KWAKU_SOLOMON
