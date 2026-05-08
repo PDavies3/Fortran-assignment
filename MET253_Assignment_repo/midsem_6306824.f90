@@ -1,53 +1,26 @@
 PROGRAM exams_grade
 IMPLICIT NONE
 integer:: s      !students score
-integer:: n      !number of students
-REAL,DIMENSION(2,2) = a,b
-CHARACTER(LEN=5):: A,B,C,F     !grading system
-
-
-IF(s>=80) .AND.(s=100) THEN
-PRINT*,'Distnction','A'
-ELSE IF((s>=60) .AND.(s=79) THEN
-print*,'credit','B'
-ELSE IF(s>=40).AND.(s=59) THEN
-PRINT*,'Pass','C'
-ELSE IF(s>=0) .AND.(s=)39 THEN
-PRINT*,'Fail','F'
-END IF
-PRINT*, A,B,C,F
-
-
+integer:: i      !number of students
+INTEGER,DIMENSION(10):: r=(/85,62,45,91,38,74,55,88,61,47/)   ! I change the dimension to 10 because the &
+students were 10 number and "a" to "r" because i declared "a" for the grading system    `
+CHARACTER(LEN=15):: A,B,C,F,DISTINCTION, CREDIT, PASS, FAIL     !grading system for the various scores
+PRINT*,r(i)  !This displays the scores of the 10 students before the 'IF STATEMENT' is applied it
 Do i=1,10
-READ, a(i)
-i=1,10
-a(1)=1
-a(2)=2
-a(3)=3
-a(4)=4
-a(5)=5
-a(6)=6
-a(7)=7
-a(8)=9
-a(9)=9
-a(10)=10
+READ, r(i)
 END DO
 
-
-READ, b(i)
-i=1,10
-b(1)=85
-b(2)=62
-b(3)=45
-b(4)=91
-b(5)=38
-b(6)=74
-b(7)=55
-b(8)=88
-b(9)=61
-b(10)=47
-END DO
-PRINT*,b(i)
-PRINT*, a(i),b(i)
+DO i=1,10
+PRINT*,'....................'
+IF(s(i)>=80) .AND.(s(i)<=100) THEN
+PRINT*,'Distnction','A'
+ELSE IF((s(i)>=60) .AND.(s(i)<=79) THEN
+print*,'credit','B'
+ELSE IF(s(i)>=40).AND.(s(i)<=59) THEN
+PRINT*,'Pass','C'
+ELSE IF(s(i)>=0) .AND.(s(i)<=)39 THEN
+PRINT*,'Fail','F'   ! I introduced the 'i'to the 's'to help compiler pick the marks for te 10 students
+END IF
+    END DO
 END PROGRAM exams_grade
      !AMPOMSAH STEPHEN TETTEH-6306824
