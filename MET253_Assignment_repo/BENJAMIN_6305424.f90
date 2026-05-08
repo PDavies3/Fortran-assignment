@@ -1,32 +1,33 @@
 !6305424
 program GRADES
+! Makes sure all variables are declared
 implicit none 
-integer, dimension(10) :: MARKS
-integer :: i 
-!do i = 1,10
- a(1) == 85
- a(2) == 62
- a(3) == 45
- a(4) == 91
- a(5) == 38
- a(6) == 74
- a(7) == 55
- a(8) == 88
- a(9) == 61
- a(10) == 47
- do i=1,10
- if (a(1)>=80), then
- print*, 'A', 'Distinction'
- else
- if (a(1)>=80, and, a(1)<=79)
- print*, 'B' , 'CREDIT'
- else
- if (a(1)>=80, and, a(1)<=59)
- print*, 'c' , 'PASS'
- else 
- if (a(1)>=80, and, a(1)<=39)
- print*, 'F'
- 
- end program GRADES
+! Stores the scores of 10 students    
+INTEGER :: scores(10) = (/85,62,45,91,38,74,55,88,61,47/)
+INTEGER :: i   ! Used for the loop
+CHARACTER(LEN=1) :: grade   ! Stores the grade
+CHARACTER(LEN=12) :: remark ! Stores the remark
+! Prints the heading
+PRINT *, "Student  Score  Grade  Remark"
+! Loop to go through all students
+DO i = 1, 10
+! Checks the score and gives a grade
+IF (scores(i) >= 80) THEN            
+grade = 'A'
+remark = 'Distinction'
+ELSE IF (scores(i) >= 60) THEN
+grade = 'B'
+remark = 'Credit'
+ELSE IF (scores(i) >= 40) THEN
+grade = 'C'
+remark = 'Pass'
+ELSE
+grade = 'F'
+remark = 'Fail'
+END IF      
+! Prints the results
+PRINT '(I5, 5X, I3, 5X, A1, 5X, A12)',  i, scores(i), grade, remark
+END DO
+end program GRADES
 
 
