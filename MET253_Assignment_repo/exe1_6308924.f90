@@ -1,21 +1,35 @@
-Program grading student
-Implicit none
-     !6308924
-Integer ::SCORE RANGE
-IF (80<=100 .AND. 100<)then
-PRINT: ,'GRADE A',
-ELSE PRINT:'Distinction'
-IF (60<=79 .AND. 79,<)THEN
-PRINT: ,'GRADE B'
-ELSE PRINT:'CREDIT'
-IF (40<=59 .AND. 59<)THEN
-PRINT: ,'GRADE C'
-ELSE PRINT:'PASS'
-IF (0<=39 .AND. 39<)THEN
-PRINT: ,'GRADE F'
-ELSE PRINT:'FAIL'
-END PROGRAM grading student
+PROGRAM student_results
+IMPLICIT NONE
 
-PROGGRAM exam
-Implicit none
-REAL:: (1,10)
+INTEGER :: i
+INTEGER, DIMENSION(10) :: score = (/85,62,45,91,38,74,55,88,61,47/)
+CHARACTER(LEN=1) :: grade
+CHARACTER(LEN=12) :: remark
+
+PRINT *, "Student Results"
+PRINT *, "No   Score   Grade   Remark"
+
+DO i = 1,10
+
+    IF (score(i) >= 80) THEN
+        grade = 'A'
+        remark = 'Distinction'
+
+    ELSE IF (score(i) >= 60) THEN
+        grade = 'B'
+        remark = 'Credit'
+
+    ELSE IF (score(i) >= 40) THEN
+        grade = 'C'
+        remark = 'Pass'
+
+    ELSE
+        grade = 'F'
+        remark = 'Fail'
+    END IF
+
+    PRINT *, i, score(i), grade, remark
+
+END DO
+
+END PROGRAM student_results
