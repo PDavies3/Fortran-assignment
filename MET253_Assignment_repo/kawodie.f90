@@ -27,4 +27,3 @@ END PROGRAM students_results
 
 !6309924
 !kawodie ransford yeboah 
-!Deduct 5 marks
