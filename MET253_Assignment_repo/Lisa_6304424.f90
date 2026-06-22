@@ -1,25 +1,32 @@
-PROGRAM Grades
-IMPLICIT NONE
+
 !6304424
-INTEGER:: i
-INTEGER:: scores(10)
-DO i= 1,10
-x(1)= 1
-x(2)= 2
-x(3)= 3
-x(4)= 4
-x(5)= 5
-x(6)= 6
-x(7)= 7
-x(8)= 8
-x(9)= 9
-x(10)= 10
-END DO 
-IF(x>=80),then 
-PRINT*,'A', 'DISTINCTION'
+PROGRAM grades
+IMPLICIT NONE
+INTEGER, DIMENSION(10) :: scores = (/85,62,45,91,38,74,55,88,61,47/)
+INTEGER :: i
+CHARACTER(LEN=1) :: grade
+CHARACTER(LEN=12) :: remark
+PRINT*, "--------------------------------------"
+PRINT*, "Student   Score   Grade   Remark"
+PRINT*, "--------------------------------------"
+DO i = 1,10
+!Loops through all students.
+IF (scores(i) >= 80 .AND. scores(i) <= 100) THEN
+grade = 'A' 
+remark = 'Distinction'
+ELSE IF (scores(i) >= 60 .AND. scores(i) <= 79) THEN
+grade = 'B'
+remark = 'Credit'
+ELSE IF (scores(i) >= 40 .AND. scores(i) <= 59) THEN
+grade = 'C'
+remark = 'Pass'
 ELSE
-IF(x(1)>=80, and, x(1)<=79)
-PRINT*, 'B', 'CREDIT'
-ELSE
-IF(x(1)>=40
-END PROGRAM Grades
+grade = 'F'
+remark = 'Fail'
+END IF
+WRITE(*,100) i, scores(i), grade, remark
+!display student name, score, grade and remark.
+END DO
+100 FORMAT(I5,5X,I5,5X,A1,7X,A12)
+!controls the output alignment and spacing.
+END PROGRAM grades
